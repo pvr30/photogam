@@ -1,0 +1,115 @@
+/* feed posts */
+body{
+  position: relative;
+}
+
+.feed{
+  position: relative;
+  width: 500px;
+  height: 720px;
+  left: 500px;
+  top: 200px;
+  margin-top: 30px;
+  border: 1px solid black;
+}
+
+.feed-photo{
+  position: relative;
+  width: 500px;
+  height: 600px;
+  padding-top: 65px;
+}
+
+.prof{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+}
+
+.name-feed{
+    position: absolute;
+    left: 70px;
+    top: 10px;
+}
+
+.comment{
+  position: relative;
+  top: -80px;
+  left: 10px;
+  /* width: 300px; */
+  border-radius: 10%;
+}
+
+
+/* like comment share */
+.l{
+  position: relative;
+  top: 10px;
+  left: 50px;
+  color: black;
+}
+
+.c{
+  position: relative;
+  top: -52px;
+  left: 184px;
+  color: black;
+}
+
+.s{
+  position: relative;
+  top: -113px;
+  left: 323px;
+  color: black;
+
+}
+
+
+/* feed css */
+
+.pic{
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  /* border: 1px solid black; */
+  left: 450px;
+  top: 200px;
+  border-radius: 50%;
+}
+
+.user-info{
+  position: absolute;
+  width: 432px;
+  height: 290px;
+  /* border: 1px solid black; */
+  left: 690px;
+  top: 170px;
+}
+
+.posts{
+  position: absolute;
+  width: 853px;
+  /* height: 600px; */
+  top: 600px;
+  left: 379px;
+  /* border: 1px solid black; */
+
+}
+
+.post-photo{
+  /* position: absolute; */
+  width: 279px;
+  height: 360px;
+  /* border: 1px solid black; */
+  padding: 10px;
+}
+
+.postview{
+  position: relative;
+  right: 20px;
+  top: 30px;
+}

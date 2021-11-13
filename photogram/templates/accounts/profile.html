@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<!-- profile image -->
+<img src="{{user.profile_pic.url}}" alt="" class="pic">
+
+<div class="user-info">
+    <h1>{{user.username}}<h1>
+    <h5>{{post_count}} posts</h5>
+    <h5>{{user.get_followers_count}} followers</h5>
+    <br>
+    {% if user.bio %}
+    <p>{{user.bio}}</p>
+    {% endif %}
+</div>
+
+<!-- all posts -->
+<div class="posts">
+
+  {% for post in posts %}
+  
+  <a href="{% url 'postdetail' post.id %}"><img src="{{post.pic.url}}" alt="" class="post-photo"></a>
+  {% endfor %}
+
+</div> 
+{% endblock %}

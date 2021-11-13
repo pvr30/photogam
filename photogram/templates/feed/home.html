@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Feed {% endblock %}
+{% block content %}
+
+<div class="post-form" style="position: absolute; width: 300px; height: 207px; left: 570px;">
+  <h3>Create Post</h3>
+  <form method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_table}}
+    <br>
+    <input type="submit" class="btn btn-primary" value="POST">
+  </form>
+  
+</div>
+
+{% for post in posts %}
+<div class="feed">
+    <a href="{% url 'profile_of_other_user' post.user.id %}"><img src="{{post.user.profile_pic.url}}" alt="" class="prof"></a>  
+    <a href="{% url 'profile_of_other_user' post.user.id %}" style="color: black;"><h5 class="name-feed">{{post.user.username}}</h5></a>
+    <p style=" 
+    position: absolute;
+    left: 70px;
+    top: 30px;">{{post.created_date}}</p>
+    <a href="{% url 'postdetail' post.id %}" style="position: relative; left: 300px; top: 10px;" class="btn btn-warning">
+      Go to Post
+    </a>
+    
+    <!-- post photo -->
+    
+    <img src="{{post.pic.url}}" alt="" class="feed-photo">
+    
+</div>
+  {% endfor %}
+
+{% endblock %}

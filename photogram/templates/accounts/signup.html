@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} SignUp {% endblock %}
+{% block content %}
+
+<div class="container" style="position:absolute; top: 100px; left: 60px;">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      {% include 'includes/messages.html' %}
+    </div>
+  </div>
+  <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+      <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+      </div><br>
+      <div class="form-group">
+          <label for="exampleInputEmail1">Phone</label>
+          <input name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone">
+      </div><br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div><br>
+      <div class="form-group">
+        <label for="formFile" class="form-label">Profile Pic</label>
+        <input class="form-control" type="file" id="formFile" name="profile_pic">
+      </div><br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">About Yourself</label>
+        <input name="bio" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Bio....">
+      </div><br>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div><br>
+      <div class="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" name="password2" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div><br>
+          <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+{% endblock %}
+   
+    

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<!-- profile image -->
+<img src="{{user_.profile_pic.url}}" alt="" class="pic">
+
+<div class="user-info">
+    <h1>{{user_.username}}<h1>
+        
+    {% if follow_val == True %}
+    
+    <form action="{% url 'unfollow' user_.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-warning" type="submit">UnFollow</button>
+    </form>
+
+    {% elif follow_val == False %}
+
+    <form action="{% url 'follow' user_.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Follow</button>
+    </form>
+
+    {% endif %}
+
+    <h5>{{post_count}} posts</h5>
+    <h5>{{user_.get_followers_count}} followers</h5>
+    <br>
+    {% if user_.bio %}
+    <p>{{user_.bio}}</p>
+    {% endif %}
+</div>
+
+<!-- all posts -->
+<div class="posts">
+
+  {% for post in posts %}
+  <a href="{% url 'postdetail' post.id %}"><img src="{{post.pic.url}}" alt="" class="post-photo"></a>
+  {% endfor %}
+
+</div> 
+{% endblock %}

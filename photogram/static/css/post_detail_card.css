@@ -1,0 +1,54 @@
+.post-photo{
+    position: relative;
+    width: 470px;
+    height: 590px;
+    left: 200px;
+    top: 50px;
+}
+
+.detail{
+    position: absolute;
+    /* border: 1px solid black; */
+    top: 116px;
+    width: 300px;
+    height: 300px;
+    right: 390px;
+}
+
+.like{
+    position: absolute;
+    right: 610px;
+    top: 210px;
+}
+
+.comment{
+    position: absolute;
+    left: 989px;
+    top: 213px;
+}
+
+.share{
+    position: absolute;
+    right: 351px;
+    top: 210px;
+}
+
+.comment-form{
+    position: absolute;
+    right: 350px;
+    top: 300px;
+}
+
+.comment-section{
+    position: absolute;
+    right: 500px;
+    top: 393px;
+}
+
+.title{
+    position: absolute;
+    right: 593px;
+    top: 350px;
+}
+
+

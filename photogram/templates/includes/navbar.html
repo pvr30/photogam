@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-light">
+        
+    <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Photogram</a>
+
+    {% if user.is_authenticated %}
+    <!-- <input type="text" placeholder="Search.." style="margin-left: 150px;"> -->
+    <!-- <a href=""><i class="bi bi-search" style="font-size:30px; color: black;
+        position: absolute;
+        left: 669px;
+        top: 5px;"></i></a> -->
+    <!-- <a href=""><i class="bi bi-bell-fill" style="font-size:30px; 
+                                                color: black;
+                                                position: absolute;
+                                                right: 170px;
+                                                top: 10px;"></i></a> -->
+    <a href="{% url 'profile' %}"><i class="bi bi-person-fill" style="font-size:35px; 
+                                                  color: black;
+                                                  position: absolute;
+                                                  right: 100px;
+                                                  top: 5px;"></i></a>
+    <a href="{% url 'logout' %}" class="btn">Logout</a>
+    <a href="{% url 'home' %}" style="font-size:30px; 
+    color: black;
+    position: absolute;
+    right: 180px;
+    top: 10px;"><i class="bi bi-house-door-fill"></i></a>
+    {% else %}
+    <a href="{% url 'login' %}" class="btn">Login</a>
+    <a href="{% url 'signup' %}" class="btn" style="position:absolute;
+                                                    left: 1350px;">Register</a>
+    
+    {% endif %}
+    </div>
+</nav>

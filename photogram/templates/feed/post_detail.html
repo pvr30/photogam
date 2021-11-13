@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Post {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/post_detail_card.css' %}">
+
+
+    <div class="detail">
+      <a href="{% url 'profile_of_other_user' post.user.id %}"><img src="{{post.user.profile_pic.url}}" alt="" class="prof"></a>
+      <a href="{% url 'profile_of_other_user' post.user.id %}" style="color: black;"><h5 class="name-feed">{{post.user.username}}</h5></a>
+      <p style=" 
+      position: absolute;
+      left: 70px;
+      top: 30px;">{{post.created_date}}</p>
+    </div>
+    
+    <div style="position: absolute;
+    right: 230px;
+    top: 220px;">
+      <h5>Caption: -{{post.caption}}</h5>
+    </div>
+
+     
+    <!-- post photo -->
+    <img src="{{post.pic.url}}" alt="" class="post-photo">
+
+
+    <!-- likes div -->
+    <div class="like">
+      
+        {% if like_value == True %}
+        
+        <form action="{% url 'unlike' post.id %}" method="post">
+          {% csrf_token %}
+          <button class="btn p-0 m-0" type="submit"><span class="bi bi-hand-thumbs-up-fill"></span></button>
+        </form>
+
+        {% elif like_value == False %}
+        
+        <form action="{% url 'like' post.id %}" method="post">
+          {% csrf_token %}
+          <button class="btn p-0 m-0" type="submit"><span class="bi bi-hand-thumbs-up"></span></button>
+        </form>
+        
+        {% endif %} 
+
+
+      <h5>{{post.likes_count}} likes</h5>
+    </div>
+
+    <!-- comment div -->
+    
+    <div class="comment">
+      <a href="" style="color: black;"><i class="bi bi-chat-left-dots-fill"></i></a>
+      <h5>{{post.comments_count}} comments</>
+    </div>
+<!--   
+    <div class="share">
+      <a href="" style="color: black;"><i class="bi bi-share-fill"></i></a>
+      <h5>share</h5>
+    </div> -->
+    
+    <!-- commment-form -->
+    <div class="comment-form">
+      <form action="{% url 'comment' post.id %}" method="post">
+        {% csrf_token %}
+        <div>
+          <input type="text" name="comment">
+          <button class="btn btn-success" type="submit">Comment</button>
+        </div>
+      </form>
+    </div>
+
+
+    <h3 class="title">Comments:</h3>
+
+    <div class="comment-section">
+      {% for comment in comments%}
+      <h4> {{comment.comment}} </h4>
+      
+      <h6>-commented by <a href="{% url 'profile_of_other_user' comment.user.id %}">{{comment.user.username}}</a></h6>
+
+      {% endfor %}
+    </div>
+    
+    
+
+
+{% endblock %}
