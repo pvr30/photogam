@@ -84,7 +84,11 @@
       {% endfor %}
     </div>
     
-    
+     {% if post.user.id == user.id %}
+    <div class="" style="position: absolute; left: 1000px;">
+      <a href="{% url 'deletepost' post.id %}" class="btn btn-danger">Delete Post</a>
+    </div>
+    {% endif %}
 
 
 {% endblock %}
