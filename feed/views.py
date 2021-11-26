@@ -142,4 +142,13 @@ def unfollow(request, id):
 
     return redirect(request.META.get('HTTP_REFERER'))
 
+@login_required(login_url='login')  
+def deletepost(request, id):
+    try:
+        post = Post.objects.get(id=id)
+        post.delete()
+        return redirect('home')
+    except:
+        return redirect(request.META.get('HTTP_REFERER'))
+
     
